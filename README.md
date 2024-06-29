@@ -35,6 +35,7 @@ ORDER BY created_at
 LIMIT 5;
 
 ### 2. Most Popular Registration Day
+```sql
 SELECT DAYNAME(created_at) AS Registration_Day, COUNT(*) AS registration_count 
 FROM users 
 GROUP BY Registration_Day 
@@ -42,12 +43,14 @@ ORDER BY registration_count DESC
 LIMIT 1;
 
 ### 3. Users Who Have Never Posted a Photo
+```sql
 SELECT username 
 FROM users 
 LEFT JOIN photos ON users.id = photos.user_id 
 WHERE photos.created_at IS NULL;
 
 ### 4. Contest Winner for Most Likes on a Single Photo
+```sql
 SELECT photos.id, username, photos.image_url, COUNT(*) AS Total_Likes 
 FROM photos 
 INNER JOIN likes ON photos.id = likes.photo_id 
@@ -57,9 +60,11 @@ ORDER BY Total_Likes DESC
 LIMIT 1;
 
 ### 5. Average Posts per User
+```sql
 SELECT ROUND((SELECT COUNT(*) FROM photos) / (SELECT COUNT(*) FROM users), 2) AS avg;
 
 ### 6. Top 5 Most Commonly Used Hashtags
+```sql
 SELECT tag_name, COUNT(*) AS total 
 FROM tags 
 LEFT JOIN photo_tags ON tags.id = photo_tags.tag_id 
@@ -68,6 +73,7 @@ ORDER BY total DESC
 LIMIT 5;
 
 ### 7. Finding Bots: Users Who Have Liked Every Single Photo
+```sql
 SELECT username, COUNT(*) AS num_likes 
 FROM likes 
 INNER JOIN users ON likes.user_id = users.id 
