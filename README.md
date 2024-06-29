@@ -27,6 +27,7 @@ The database schema includes the following tables:
 - **Follows**: Stores information about which users follow which other users.
 
 ## Example Queries
+```sql
 ### 1. Finding 5 Oldest Users
 SELECT username, created_at 
 FROM users 
