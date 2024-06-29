@@ -10,7 +10,7 @@ This project involves designing and implementing a database schema for an Instag
 
 ## Technologies Used
 - **Database**: MySQL
-- **Tools**: Cloud9 IDE, Sublime Text
+- **Tools**: MySql Workbench
 - **Languages**: SQL
 
 ## Key Achievements
